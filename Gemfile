@@ -41,5 +41,11 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem 'rails_layout'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'debugger'
+end
+
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'simple_form', git: 'https://github.com/plataformatec/simple_form', tag: 'v3.1.0.rc1'
