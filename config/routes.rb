@@ -1,4 +1,6 @@
 TajmLaps::Application.routes.draw do
+  resources :projects
+
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
 
   get '/users/:id/add_email' => 'users#add_email', via: [:get, :patch, :post], :as => :add_user_email
@@ -7,7 +9,7 @@ TajmLaps::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'projects#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
