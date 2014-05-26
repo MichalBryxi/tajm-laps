@@ -45,6 +45,7 @@ group :development, :test do
   gem 'rails_layout'
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'debugger'
+  gem 'dotenv-rails'
 end
 
 gem 'bootstrap-sass', '~> 3.1.1'
