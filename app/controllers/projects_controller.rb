@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @tweets = $twitter.search("to:justinbieber marry me", :result_type => "recent").take(3)
   end
 
   # GET /projects/new
