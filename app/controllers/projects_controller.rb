@@ -10,7 +10,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @tweets = $twitter.search("to:justinbieber marry me", :result_type => "recent").take(3)
+    needle = '#' + @project.hashtag
+    @tweets = $twitter.search(needle, :result_type => "recent").take(8)
   end
 
   # GET /projects/new
@@ -71,6 +72,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :published)
+      params.require(:project).permit(:name, :description, :published, :hashtag)
     end
 end
