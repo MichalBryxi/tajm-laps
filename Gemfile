@@ -63,3 +63,4 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
 gem 'twitter'
+gem 'metainspector'

@@ -11,7 +11,23 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     needle = '#' + @project.hashtag
-    @tweets = $twitter.search(needle, :result_type => "recent").take(8)
+    @tweets = $twitter.search(needle, :result_type => "recent").take(3)
+    @urls = []
+    @tweets.each do |tweet|
+      urls = URI.extract(tweet.text)
+      p "urls:"
+      p urls
+      urls.each do |url|
+        if url.include? 'http://'
+          p url
+          p "fetching url"
+          page = MetaInspector.new(url)
+          p "images:"
+          p page.images
+          @urls += page.images
+        end
+      end
+    end
   end
 
   # GET /projects/new
