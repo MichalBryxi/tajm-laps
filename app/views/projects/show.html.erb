@@ -9,19 +9,18 @@
 </p>
 
 <div class="row">
-  <% @tweets.each do |tweet| %>
+  <% @project.posts.each do |post| %>
     <div class="col-xs-3">
-      <div class="well">
-        <%= tweet.text %>
+      <!-- <div class="well"> -->
+      <div class="thumbnail">
+        <%= image_tag post.image, width: 100, class: 'img-responsive' %>
+        <div class="caption">
+          <p>
+            <%= post.body %>
+          </p>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
-
-<div class="row">
-  <% @urls.each do |url| %>
-    <div class="col-xs-2">
-      <%= image_tag url, width: 100, class: 'img-responsive' %>
+      <!-- </div> -->
     </div>
   <% end %>
 </div>

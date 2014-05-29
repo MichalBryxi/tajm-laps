@@ -1,4 +1,6 @@
 TajmLaps::Application.routes.draw do
+  resources :posts
+
   resources :projects
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
