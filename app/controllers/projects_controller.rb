@@ -21,10 +21,14 @@ class ProjectsController < ApplicationController
         if url.include? 'http://'
           p url
           p "fetching url"
-          page = MetaInspector.new(url)
-          p "images:"
-          p page.images
-          @urls += page.images
+          begin
+            page = MetaInspector.new(url)
+            p "images:"
+            p page.images
+            @urls += page.images
+          rescue => e
+            p e
+          end
         end
       end
     end

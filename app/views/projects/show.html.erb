@@ -18,8 +18,12 @@
   <% end %>
 </div>
 
-<% @urls.each do |url| %>
-  <%= image_tag url %>
-<% end %>
+<div class="row">
+  <% @urls.each do |url| %>
+    <div class="col-xs-2">
+      <%= image_tag url, width: 100, class: 'img-responsive' %>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'Back', projects_path %>
