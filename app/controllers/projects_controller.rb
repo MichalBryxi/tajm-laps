@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     @tweets = $twitter.search(needle, :result_type => "recent").take(3)
     @urls = []
     @tweets.each do |tweet|
-      urls = URI.extract(tweet.text)
+      urls = URI.extract(tweet.text, 'http')
       p "urls:"
       p urls
       urls.each do |url|
