@@ -63,5 +63,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
 gem 'twitter'
-gem 'metainspector'
+#gem 'metainspector'
 gem 'rest-client'
+gem 'nokogiri'

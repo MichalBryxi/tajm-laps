@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531133957) do
+ActiveRecord::Schema.define(version: 20140531161558) do
 
   create_table "identities", force: true do |t|
     t.integer  "user_id"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140531133957) do
     t.string   "xpath"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "url"
+    t.string   "domain"
   end
 
   create_table "posts", force: true do |t|

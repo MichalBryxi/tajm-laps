@@ -69,6 +69,6 @@ class ParsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parser_params
-      params.require(:parser).permit(:name, :xpath)
+      params.require(:parser).permit(:name, :xpath, :domain)
     end
 end
