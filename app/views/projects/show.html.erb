@@ -13,7 +13,9 @@
     <div class="col-xs-3">
       <!-- <div class="well"> -->
       <div class="thumbnail">
-        <%= image_tag post.image, width: 100, class: 'img-responsive' %>
+        <%= link_to post do %>
+          <%= image_tag post.image, width: 100, class: 'img-responsive' %>
+        <% end %>
         <div class="caption">
           <p>
             <%= post.body %>

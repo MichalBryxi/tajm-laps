@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :fetch_tweets]
 
   # GET /projects
   # GET /projects.json
@@ -10,7 +10,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+  end
+
+  def  fetch_tweets
     @project.fetch_tweets
+    redirect_to @project
   end
 
   # GET /projects/new

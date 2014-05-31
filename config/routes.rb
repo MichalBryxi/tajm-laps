@@ -1,7 +1,11 @@
 TajmLaps::Application.routes.draw do
   resources :posts
 
-  resources :projects
+  resources :projects do
+    member do
+      get :fetch_tweets
+    end
+  end
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
 
