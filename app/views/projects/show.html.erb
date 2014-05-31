@@ -22,6 +22,7 @@
             <strong>
               via: <%= post.parser_name %>
             </strong>
+            <%= link_to "Parse", parse_post_path(post), class: "btn btn-" + (post.image.nil? ? 'danger' : 'success') %>
           </p>
         </div>
       </div>

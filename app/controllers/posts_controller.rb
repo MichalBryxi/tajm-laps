@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :parse]
 
   # GET /posts
   # GET /posts.json
@@ -10,6 +10,11 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+  end
+
+  def parse
+    flash[:error] = @post.parse
+    redirect_to @post
   end
 
   # GET /posts/new
