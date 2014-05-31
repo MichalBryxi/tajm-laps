@@ -160,6 +160,8 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec-core (3.0.0.rc1)
       rspec-support (= 3.0.0.rc1)
     rspec-expectations (3.0.0.rc1)
@@ -243,6 +245,7 @@ DEPENDENCIES
   rails (= 4.0.3)
   rails-erd
   rails_layout
+  rest-client
   rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.0)
   sdoc

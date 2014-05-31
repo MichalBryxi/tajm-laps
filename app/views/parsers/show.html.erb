@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @parser.name %>
+</p>
+
+<p>
+  <strong>Xpath:</strong>
+  <%= @parser.xpath %>
+</p>
+
+<%= link_to 'Edit', edit_parser_path(@parser) %> |
+<%= link_to 'Back', parsers_path %>

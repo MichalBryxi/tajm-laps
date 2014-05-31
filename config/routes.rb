@@ -1,4 +1,6 @@
 TajmLaps::Application.routes.draw do
+  resources :parsers
+
   resources :posts
 
   resources :projects do
