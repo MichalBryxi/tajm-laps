@@ -8,10 +8,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
-    <header id='head'>
-      <%= render 'layouts/navigation' %>
-    </header>
+  <body class="home">
+    <%= render 'layouts/navigation' %>
+
+    <%= yield(:header) %>
+
     <main role="main">
       <div class="container">
       <div class="row">
@@ -22,5 +23,7 @@
       </div>
       </div>
     </main>
+
+    <%= render 'layouts/footer' %>
   </body>
 </html>
