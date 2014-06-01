@@ -10,6 +10,7 @@ TajmLaps::Application.routes.draw do
   resources :projects do
     member do
       get :fetch_tweets
+      get :parse_tweets
     end
   end
 

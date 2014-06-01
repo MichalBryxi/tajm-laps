@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :fetch_tweets]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :fetch_tweets, :parse_tweets]
 
   # GET /projects
   # GET /projects.json
@@ -13,8 +13,13 @@ class ProjectsController < ApplicationController
   def show
   end
 
-  def  fetch_tweets
-    @project.fetch_tweets
+  def fetch_tweets
+    flash[:notice] = "Fetched tweets: " + @project.fetch_tweets.to_s
+    redirect_to @project
+  end
+
+  def parse_tweets
+    flash[:notice] = "Parsed tweets: " + @project.parse_tweets.to_s
     redirect_to @project
   end
 

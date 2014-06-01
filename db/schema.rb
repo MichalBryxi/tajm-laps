@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601175836) do
+ActiveRecord::Schema.define(version: 20140601214618) do
 
   create_table "identities", force: true do |t|
     t.integer  "user_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140601175836) do
     t.datetime "updated_at"
     t.integer  "project_id"
     t.integer  "parser_id"
+    t.boolean  "parsed",     default: false, null: false
   end
 
   create_table "projects", force: true do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140601175836) do
     t.string   "hashtag"
     t.integer  "user_id"
     t.integer  "posts_count"
+    t.integer  "since_id",    limit: 8
   end
 
   create_table "users", force: true do |t|

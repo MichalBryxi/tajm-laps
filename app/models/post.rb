@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :parser
 
   default_scope { order('id DESC') }
+  scope :unparsed, -> { where(parsed: false) }
 
   def parser_name
     if parser.nil?
