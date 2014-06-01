@@ -15,7 +15,6 @@ class Post < ActiveRecord::Base
   def parse
     progress = []
     urls = URI.extract(body, 'http')
-    p urls
     urls.each do |url|
       if url.include? 'http://'
         begin
@@ -30,7 +29,7 @@ class Post < ActiveRecord::Base
           url = final_uri
 
           domain = URI.parse(url).host
-          parser = Parser.where({domain: domain}).first
+          parser = Parser.where({domain: domain}).first_or_create
           xpath = parser.xpath
           image = Nokogiri::HTML(response).xpath(xpath).to_s
           progress << "Image: " + image

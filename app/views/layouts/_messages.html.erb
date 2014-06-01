@@ -5,7 +5,7 @@
     <%= content_tag :div, :id => "flash_#{name}" do %>
       <% if msg.kind_of?(Array) %>
         <ul>
-          <%= msg.each do |line| %>
+          <% msg.each do |line| %>
             <li><%= line %></li>
           <% end %>
         </ul>

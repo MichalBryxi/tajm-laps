@@ -11,9 +11,8 @@ class Project < ActiveRecord::Base
     tweets = $twitter.search(needle, :result_type => "recent").take(3)
     tweets.each do |tweet|
       post = Post.new({body: tweet.text, project: self})
-      post.save
-
       post.parse
+      post.save!
     end
   end
 end
