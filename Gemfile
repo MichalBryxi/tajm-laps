@@ -24,6 +24,13 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+group :production do
+  gem 'rails_12factor'
+  # Use postgresql as the database for Active Record
+  gem 'pg'
+  gem 'unicorn'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
