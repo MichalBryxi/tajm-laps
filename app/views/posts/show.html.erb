@@ -9,7 +9,7 @@
     <div class="thumbnail">
       <%= image_tag @post.image, class: 'media-object'%>
       <div class="caption">
-        <%= @post.body %>
+        <%= auto_link(@post.body) %>
       </div>
     </div>
   </div>
