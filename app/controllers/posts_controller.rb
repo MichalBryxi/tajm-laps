@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def parse
-    flash[:error] = @post.parse
+    flash[:notice] = @post.parse
     redirect_to @post
   end
 

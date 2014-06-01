@@ -13,7 +13,9 @@ class Post < ActiveRecord::Base
   end
 
   def parse
+    progress = []
     urls = URI.extract(body, 'http')
+    p urls
     urls.each do |url|
       if url.include? 'http://'
         begin
@@ -24,20 +26,24 @@ class Post < ActiveRecord::Base
             response = h.read
             final_uri = h.base_uri.to_s
           end
+          progress << "URL: " + final_uri
           url = final_uri
 
           domain = URI.parse(url).host
           parser = Parser.where({domain: domain}).first
           xpath = parser.xpath
           image = Nokogiri::HTML(response).xpath(xpath).to_s
+          progress << "Image: " + image
 
           self.image = image
           self.parser = parser
           self.save!
+          break # It's ok, we already have some image
         rescue => e
-          return e.to_s
+          progress << "Error: " + e.to_s
         end
       end
     end
+    return progress
   end
 end
