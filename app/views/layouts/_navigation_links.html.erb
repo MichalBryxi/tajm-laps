@@ -1,6 +1,8 @@
 <%# add navigation links to this file %>
 <li><%= link_to 'Home', page_path('home') %></li>
-<li><%= link_to "Projects", projects_path %></li>
-<li><%= link_to "Posts", posts_path %></li>
-<li><%= link_to "Parsers", parsers_path %></li>
+<% if user_signed_in? %>
+  <li><%= link_to "Projects", projects_path %></li>
+  <li><%= link_to "Posts", posts_path %></li>
+  <li><%= link_to "Parsers", parsers_path %></li>
+<% end %>
 <li><%= link_to 'About', page_path('about') %></li>
