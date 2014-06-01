@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   scope :by_user, ->(user_id) { where(user_id: user_id) }
 
   def fetch_tweets
-    count = 99
+    count = 3
     needle = '#' + self.hashtag
     tweets = $twitter.search(needle, result_type: "recent", since_id: self.since_id).take(count)
     tweets.each do |tweet|
