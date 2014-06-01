@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  belongs_to :project
+  belongs_to :project, counter_cache: true
   belongs_to :parser
 
   default_scope { order('id DESC') }

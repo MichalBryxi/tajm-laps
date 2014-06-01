@@ -1,34 +1,26 @@
-<h1>Listing projects</h1>
+<h1 class='page-title'>All projects</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Hashtag</th>
-      <th>Published</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class='row'>
+  <% @projects.each do |project| %>
+    <div class='col-xs-4'>
+      <div class='well'>
+        <h4>
+          <%= link_to project do %>
+            <span class="badge">
+              <%= project.posts.size %>x
+            </span>
+            <%= project.name %>
+          <% end %>
+        </h4>
+        <p>
+          <%= project.description %>
+          <strong>#<%= project.hashtag %></strong>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= project.description %></td>
-        <td><%= project.hashtag %></td>
-        <td><%= project.published %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Fetch tweets', fetch_tweets_project_path(project) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<hr />
 
 <%= link_to 'New Project', new_project_path %>

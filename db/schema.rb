@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531194035) do
+ActiveRecord::Schema.define(version: 20140601175836) do
 
   create_table "identities", force: true do |t|
     t.integer  "user_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140531194035) do
     t.datetime "updated_at"
     t.string   "hashtag"
     t.integer  "user_id"
+    t.integer  "posts_count"
   end
 
   create_table "users", force: true do |t|
