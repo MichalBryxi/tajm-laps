@@ -37,6 +37,7 @@ class Post < ActiveRecord::Base
 
           self.image = image
           self.parser = parser
+          self.parsed = true
           self.save!
           break # It's ok, we already have some image
         rescue => e

@@ -24,8 +24,11 @@ class Project < ActiveRecord::Base
   end
 
   def parse_tweets
+    count = self.posts.unparsed.count
     self.posts.unparsed.each do |post|
       post.parse
     end
+
+    return count
   end
 end
