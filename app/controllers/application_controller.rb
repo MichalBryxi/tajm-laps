@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
       redirect_to add_user_email_path(current_user)
     end
   end
+
+  def after_sign_in_path_for(resource)
+    projects_path
+  end
 end

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, :add_email
+  # TODO: We don't need this?
+  #before_action :set_user, :add_email
 
   def add_email
     if params[:user] && params[:user][:email]
@@ -16,6 +17,9 @@ class UsersController < ApplicationController
           @show_errors = true
       end
     end
+  end
+
+  def login
   end
 
   private
