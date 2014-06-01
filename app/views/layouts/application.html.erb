@@ -11,7 +11,12 @@
   <body class="home">
     <%= render 'layouts/navigation' %>
 
-    <%= yield(:header) %>
+    <% if content_for(:header) %>
+      <%= yield(:header) %>
+    <% else %>
+      <!-- artificial space -->
+      <header id="head" class="secondary"></header>
+    <% end %>
 
     <main role="main">
       <div class="container">
