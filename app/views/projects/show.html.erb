@@ -13,7 +13,7 @@
 </p>
 
 <div class="row">
-  <% @project.posts.each do |post| %>
+  <% @project.posts.limit(30).each do |post| %>
     <div class="col-xs-4">
       <!-- <div class="well"> -->
       <div class="thumbnail">
