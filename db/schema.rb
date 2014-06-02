@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602105230) do
+ActiveRecord::Schema.define(version: 20140602121408) do
 
   create_table "identities", force: true do |t|
     t.integer  "user_id"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20140602105230) do
     t.datetime "updated_at"
     t.string   "domain"
   end
+
+  add_index "parsers", ["domain"], name: "index_parsers_on_domain", unique: true
 
   create_table "posts", force: true do |t|
     t.string   "body"
