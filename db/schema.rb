@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601214618) do
+ActiveRecord::Schema.define(version: 20140602073837) do
 
   create_table "identities", force: true do |t|
     t.integer  "user_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140601214618) do
     t.integer  "user_id"
     t.integer  "posts_count"
     t.integer  "since_id",    limit: 8
+    t.integer  "max_id",      limit: 8
   end
 
   create_table "users", force: true do |t|

@@ -9,10 +9,17 @@ class Project < ActiveRecord::Base
   def fetch_tweets
     count = 3
     needle = '#' + self.hashtag
-    tweets = $twitter.search(needle, result_type: "recent", since_id: self.since_id).take(count)
+    options = {result_type: "recent", count: count}
+    options[:since_id] = self.since_id unless self.since_id.nil?
+    options[:max_id] = self.max_id unless self.max_id.nil?
+    tweets = $twitter.search(needle, options)
+    puts "------" + tweets.count.to_s
+    p options
     tweets.each do |tweet|
+      puts "tweet.id: " + tweet.id.to_s
       # Update cursor
-      self.since_id = tweet.id
+      self.since_id = tweet.id if (self.since_id.nil? or self.since_id > tweet.id)
+      self.max_id = tweet.id if (self.max_id.nil? or self.max_id > tweet.id)
       self.save!
 
       # Create new tweets
