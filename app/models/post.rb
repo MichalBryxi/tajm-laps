@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :parser
 
   default_scope { order('id DESC') }
-  scope :unparsed, -> { where(parsed: false) }
+  scope :unparsed, -> { where(image: nil) }
 
   def parser_name
     if parser.nil?
@@ -32,12 +32,13 @@ class Post < ActiveRecord::Base
           domain = URI.parse(url).host
           parser = Parser.where({domain: domain}).first_or_create
           xpath = parser.xpath
+          puts parser.xpath
+          puts domain
           image = Nokogiri::HTML(response).xpath(xpath).to_s
           progress << "Image: " + image
 
           self.image = image
           self.parser = parser
-          self.parsed = true
           self.save!
           break # It's ok, we already have some image
         rescue => e

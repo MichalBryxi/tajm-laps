@@ -7,24 +7,27 @@ class Project < ActiveRecord::Base
   scope :by_user, ->(user_id) { where(user_id: user_id) }
 
   def fetch_tweets
-    count = 3
     needle = '#' + self.hashtag
-    options = {result_type: "recent", count: count}
-    options[:since_id] = self.since_id unless self.since_id.nil?
-    options[:max_id] = self.max_id unless self.max_id.nil?
+    options = {result_type: "recent", since_id: self.cursor}
     tweets = $twitter.search(needle, options)
-    puts "------" + tweets.count.to_s
-    p options
     tweets.each do |tweet|
-      puts "tweet.id: " + tweet.id.to_s
-      # Update cursor
-      self.since_id = tweet.id if (self.since_id.nil? or self.since_id > tweet.id)
-      self.max_id = tweet.id if (self.max_id.nil? or self.max_id > tweet.id)
-      self.save!
+      # Update project cursor
+      if self.cursor.nil? or tweet.id > self.cursor
+        self.cursor = tweet.id
+        self.save!
+      end
 
-      # Create new tweets
-      post = Post.new({body: tweet.text, project: self})
+      # Create new tweet
+      post = Post.new(
+        {
+          body: tweet.text,
+          project: self,
+          uid: tweet.id
+        }
+      )
+      # We do not want to parse new tweet directly
       #post.parse
+      # Save new tweet
       post.save!
     end
     return tweets.count
