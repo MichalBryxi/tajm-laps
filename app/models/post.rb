@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
 
   default_scope { order('id DESC') }
   scope :unparsed, -> { where(image: nil) }
+  scope :pretty, -> { where.not(image: nil).where.not(image: "").limit(30) }
 
   def parser_name
     if parser.nil?
