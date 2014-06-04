@@ -3,14 +3,14 @@
   <header id="head">
     <div class="container">
       <div class="row">
-        <h1 class="lead">tajm &hellip; laps</h1>
+        <h1 class="lead"><%= t '.name' %></h1>
         <p class="tagline">
-          crowdsourced (<span class='text-muted'><%= icon('users')%></span>)
-          timelapse (<span class='text-muted'><%= icon('clock-o')%></span>)
-          videos (<span class='text-muted'><%= icon('file-video-o')%></span>)
+          <%= t '.crowdsourced' %> (<span class='text-muted'><%= icon('users')%></span>)
+          <%= t '.timelapse' %> (<span class='text-muted'><%= icon('clock-o')%></span>)
+          <%= t '.videos' %> (<span class='text-muted'><%= icon('file-video-o')%></span>)
         </p>
         <p>
-          <h2 class="tagline">Sign in:</h2>
+          <h2 class="tagline"><%= t '.SignIn' %>:</h2>
           <%= link_to user_omniauth_authorize_path(:twitter), class: 'btn btn-info btn-lg', disabled: 'disabled' do %>
             <%= icon('twitter') %>
             &nbsp;&nbsp;&nbsp;
