@@ -1,0 +1,9 @@
+cs:
+  pages:
+    home:
+      title: O čem tenhle projekt je?
+      annotation: Jedná se o crowd projekt umožňující zachytit dlouhodobou změnu čehokoli.
+      features: Proč je to dobrej nápad?
+      feature_1:
+        title: Je to super
+        body: No fakt!
