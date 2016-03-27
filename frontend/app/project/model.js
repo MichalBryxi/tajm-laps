@@ -5,6 +5,8 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   image: DS.attr('string'),
   hashtag: DS.attr('string'),
+  latitude: DS.attr('number'),
+  longitude: DS.attr('number'),
 
   posts: DS.hasMany('post', { async: true })
 });

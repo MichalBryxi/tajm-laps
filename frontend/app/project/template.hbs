@@ -20,6 +20,13 @@
   {{~ model.name ~}}
 </h2>
 
+{{#s-map latitude=49.8 longitude=15.5 zoom=7 as |map|}}
+  {{#s-map-layer map=map as |layer|}}
+    {{s-map-marker layer=layer latitude=model.latitude longitude=model.longitude}}
+  {{/s-map-layer}}
+{{/s-map}}
+
+
 <div class="fixed-action-btn horizontal click-to-toggle">
   <a class="btn-floating btn-large red">
     <i class="large mdi-content-add"></i>

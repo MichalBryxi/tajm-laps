@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220143310) do
+ActiveRecord::Schema.define(version: 20160327021325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,10 +38,12 @@ ActiveRecord::Schema.define(version: 20160220143310) do
     t.text     "description"
     t.string   "hashtag"
     t.string   "image"
-    t.integer  "posts_count",                default: 0, null: false
+    t.integer  "posts_count",                default: 0,   null: false
     t.decimal  "cursor",      precision: 24
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.float    "latitude",                   default: 0.0, null: false
+    t.float    "longitude",                  default: 0.0, null: false
   end
 
 end
