@@ -1,6 +1,6 @@
 # Tajm Lapster
 
-Simple project for capturing photo time-series of one place and creating videos of those.
+Simple project for capturing photo time-series of one place and creating videos of those. Project can be viewed ad: http://casosberne.cz
 
 ## Technology
 
