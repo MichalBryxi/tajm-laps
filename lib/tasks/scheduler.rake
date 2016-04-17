@@ -10,10 +10,4 @@ namespace :scheduler do
       project.parse
     end
   end
-
-  task :gif => :environment do
-    Project.all.each do |project|
-      project.gif
-    end
-  end
 end
