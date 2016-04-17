@@ -1,5 +1,9 @@
 # Tajm Lapster
 
+[![Build Status](https://travis-ci.org/MichalBryxi/casosberne.cz.svg?branch=master)](https://travis-ci.org/MichalBryxi/casosberne.cz)
+
+---
+
 Simple project for capturing photo time-series of one place and creating videos of those. Project can be viewed ad: http://casosberne.cz.
 
 ## Technology
