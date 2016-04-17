@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import { linkify } from 'ember-linkify/helpers/linkify';
+import moment from 'moment';
 
 export default Ember.Controller.extend({
   photos: Ember.computed.map('model.posts', function(post) {
