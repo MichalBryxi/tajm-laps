@@ -31,7 +31,9 @@ export default {
   },
 
   project: {
-    allProjects: 'všechny projekty'
+    allProjects: 'všechny projekty',
+    description: 'Popis',
+    map: 'Mapa'
   },
 
   contact: {
