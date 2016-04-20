@@ -26,7 +26,7 @@
   {{/link-to}}
 {{/md-navbar}}
 
-<div class="application-container">
+<div class="{{if isFullScreen 'application-fullscreen' 'application-container'}}">
   {{outlet}}
 </div>
 

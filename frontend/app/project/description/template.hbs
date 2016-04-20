@@ -1,0 +1,39 @@
+<h2 class="project-heading">
+  {{~ model.name ~}}
+</h2>
+
+<p class="project-gps">
+  {{#link-to 'project.map' model.id}}
+    {{fa-icon 'fa-globe'}} {{model.latitude}}, {{model.longitude}}
+  {{/link-to}}
+</p>
+
+<p class="project-description">
+  {{~ md-text text=model.description ~}}
+</p>
+
+<div class="row">
+  {{#photo-swipe items=photosSorted as |elm|}}
+    <div class="col s6 m4 l3">
+      {{x-post post=elm}}
+    </div>
+  {{/photo-swipe}}
+</div>
+
+{{#md-fixed-btns
+	class="fixed-btns-example click-to-toggle"
+	btnIcon="mdi-content-add"
+	btnClass="btn-large red"}}
+
+    <li>
+      <a href="mailto:casosberne@gmail.com?subject=#{{model.hashtag}}" class="btn-floating btn-large red">
+        {{fa-icon icon="envelope"}}
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/intent/tweet?hashtags={{model.hashtag}}" class="btn-floating btn-large blue">
+        {{fa-icon icon="twitter"}}
+      </a>
+    </li>
+
+{{/md-fixed-btns}}

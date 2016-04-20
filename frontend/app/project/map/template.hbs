@@ -1,0 +1,5 @@
+{{#s-map latitude=model.latitude longitude=model.longitude zoom=13 as |map|}}
+  {{#s-map-layer map=map as |layer|}}
+    {{s-map-marker layer=layer latitude=model.latitude longitude=model.longitude}}
+  {{/s-map-layer}}
+{{/s-map}}
